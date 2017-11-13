@@ -1,4 +1,4 @@
-package com.fileservice.service;
+package com.codingapi.fileservice.service;
 
 import com.lorne.core.framework.exception.ServiceException;
 import org.springframework.web.multipart.MultipartHttpServletRequest;

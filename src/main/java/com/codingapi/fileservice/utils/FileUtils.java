@@ -1,4 +1,4 @@
-package com.fileservice.utils;
+package com.codingapi.fileservice.utils;
 
 import com.lorne.core.framework.exception.ServiceException;
 import com.lorne.core.framework.utils.DateUtil;

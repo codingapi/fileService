@@ -1,4 +1,4 @@
-package com.fileservice;
+package com.codingapi.fileservice;
 
 import com.lorne.core.framework.utils.config.ConfigHelper;
 

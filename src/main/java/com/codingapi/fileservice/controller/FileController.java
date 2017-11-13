@@ -1,7 +1,7 @@
-package com.fileservice.controller;
+package com.codingapi.fileservice.controller;
 
 
-import com.fileservice.service.FileService;
+import com.codingapi.fileservice.service.FileService;
 import com.lorne.core.framework.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

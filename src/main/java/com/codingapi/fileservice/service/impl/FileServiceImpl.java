@@ -1,13 +1,11 @@
-package com.fileservice.service.impl;
+package com.codingapi.fileservice.service.impl;
 
-import com.fileservice.FileUrl;
-import com.fileservice.service.FileService;
-import com.fileservice.utils.FileUtils;
+import com.codingapi.fileservice.FileUrl;
+import com.codingapi.fileservice.service.FileService;
+import com.codingapi.fileservice.utils.FileUtils;
 import com.lorne.core.framework.exception.ServiceException;
-import com.lorne.core.framework.utils.DateUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;

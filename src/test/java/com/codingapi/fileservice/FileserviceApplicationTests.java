@@ -1,4 +1,4 @@
-package com.fileservice;
+package com.codingapi.fileservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
