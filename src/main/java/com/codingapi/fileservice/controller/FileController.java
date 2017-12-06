@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 图片 ， 小文件上传
+ */
 @Controller
 @RequestMapping("/file")
 public class FileController  {

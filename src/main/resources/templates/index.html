@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Agent</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <style>
+        .container{
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div style="border: 1px solid red;" >
+        <div >
+            <label style="color: red;">上传图片</label>
+            <form action="http://47.100.99.28:8086/fileService/file/uploadFile" method="post"
+                  enctype="multipart/form-data">
+                <input type="file" name="file" />
+                <input type="file" name="file" />
+                <br />
+                <input type="submit" value="提交文件" />
+            </form>
+        </div>
+        <br />
+        <br />
+        <div>
+            <label style="color: red;">访问图片</label>
+            <input type="text" style="width: 300px;" id="path" />
+            <input type="submit" value="提交文件" id="submit" onclick="path()" />
+        </div>
+
+    </div>
+
+
+
+    <div style="border: 1px solid red;margin-top: 10px;" >
+        <div >
+            <label style="color: red;">上传大文件</label>
+                <input type="file" name="file" id="upBigfile" />
+                <br />
+                <input type="submit" value="提交文件" id="upload" />
+        </div>
+        <br />
+        <br />
+
+        <!--<div>-->
+            <!--<label style="color: red;">访问图片</label>-->
+            <!--<input type="text" style="width: 300px;" id="path" />-->
+            <!--<input type="submit" value="提交文件" id="submit" onclick="path()" />-->
+        <!--</div>-->
+
+    </div>
+
+
+
+</div>
+</body>
+
+<script th:src="@{/js/md5.js}" > </script>
+<script th:src="@{/js/jquery.min.js}"> </script>
+<script th:src="@{/js/upload.js}" > </script>
+
+
+<script>
+
+
+    function path(){
+        var path = document.getElementById("path").value;
+        alert(path);
+        window.open("http://47.100.99.28:8086/fileService/file/downloadFile?path="+aa);
+    }
+
+
+
+</script>
+
+</html>

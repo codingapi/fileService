@@ -1,6 +1,7 @@
 package com.codingapi.fileservice.service;
 
 import com.lorne.core.framework.exception.ServiceException;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
@@ -24,4 +25,12 @@ public interface FileService {
 
 
     void downloadFile(String path, HttpServletResponse response) throws ServiceException, IOException;
+
+
+
+    /**
+     * 文件 分割上传
+     * @throws IOException
+     */
+    String bigUpload(String fileName, Integer total, String uuid, String md5, Integer blockNum , MultipartFile file);
 }
