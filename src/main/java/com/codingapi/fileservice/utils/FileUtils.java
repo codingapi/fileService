@@ -2,6 +2,8 @@ package com.codingapi.fileservice.utils;
 
 import com.lorne.core.framework.exception.ServiceException;
 import com.lorne.core.framework.utils.DateUtil;
+import net.coobird.thumbnailator.Thumbnails;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -77,13 +79,25 @@ public class FileUtils {
 						String name = file.getOriginalFilename();
 						if(!name.equals("")){
 							Map<String,Object> fileState = new HashMap<>();
-							name = new String(name.getBytes("ISO-8859-1"), "UTF-8");
 							String timepath = String.format("%s%s",System.currentTimeMillis(),(int) (Math.random() * 99999));
 							String upath = String.format("%s%s/%s/%s", uploadFilePath,
 									dayPath, timepath, name);
 							try {
 								FileUtils.createFile(upath);
 								FileUtils.saveInputStream2File(file, upath);
+
+								if(StringUtils.endsWith(name , ".jpg")
+										|| StringUtils.endsWith(name , ".JPG")
+										|| StringUtils.endsWith(name , ".PNG")
+										|| StringUtils.endsWith(name , ".png")
+										|| StringUtils.endsWith(name , ".svg")
+										|| StringUtils.endsWith(name , ".bmp")
+										|| StringUtils.endsWith(name , ".SVG")
+										|| StringUtils.endsWith(name , ".BMP")
+										){
+									Thumbnails.of(upath).scale(0.5f).outputQuality(0.25f).toFile(upath);
+								}
+
 								String dpath = String.format("%s/%s/%s", dayPath, timepath, name);
 								//  文件名及地址
 								fileState.put("name",name);
@@ -135,6 +149,12 @@ public class FileUtils {
 	}
 
 
+	public static void main(String[] args) throws IOException {
+		String url1 ="E:\\apache-tomcat-8.0.47\\webapps\\images\\20180408\\152319246069031127\\t4.png";
+		String url2 ="E:\\apache-tomcat-8.0.47\\webapps\\images\\20180408\\152319246069031127\\12.png";
+
+		Thumbnails.of(new File(url1)).scale(0.5f).outputQuality(0.25f).toFile(new File(url2));
+	}
 
 
 
